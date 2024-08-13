@@ -1,5 +1,5 @@
 /**@format */
-import React from 'react'
+import React from 'react' 
 import Spline from '@splinetool/react-spline';
 function Sample({className}) {
   return (
