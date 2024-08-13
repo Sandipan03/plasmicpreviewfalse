@@ -3,7 +3,7 @@ import React from 'react'
 
 function Sample({className}) {
   return (
-    <div className={className}><h1>Hello World</h1></div>
+    <div className={className}><Spline scene="https://prod.spline.design/tJgdrOWwx3zxIXXy/scene.splinecode" /></div>
   )
 }
 
