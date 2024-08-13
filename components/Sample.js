@@ -5,7 +5,7 @@ function Sample({className}) {
   return (
     
       <div className={className} style={{ width: "100vw" }}>
-        <Suspense fallback={<h1>Loading...</h1> }>
+        <Suspense fallback={<h1>Loading....</h1> }>
         <Spline scene='https://prod.spline.design/6Re8UFR1WXy53RFH/scene.splinecode' />
         </Suspense>
     </div>
