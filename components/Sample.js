@@ -1,11 +1,12 @@
 /**@format */
-import React, { Suspense , useEffect, useState} from "react";
+import React, { Suspense , useState} from "react";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-const Spline = React.lazy(() => import("@splinetool/react-spline"));
+// const Spline = React.lazy(() => import("@splinetool/react-spline"));
+import Spline from "@splinetool/react-spline";
 function Sample({className}) {
   const [model, setmodel] = useState(false)
-  const [loaded, setloaded] = useState(false)
+  // const [loaded, setloaded] = useState(false)
 //   useEffect(() => {
 //     // callback function to call when event triggers
 //     const onPageLoad = () => {
@@ -24,13 +25,13 @@ function Sample({className}) {
 //       return () => window.removeEventListener('load', onPageLoad);
 //   }
 // },  []);
-useEffect(() => setloaded(true), []);
-useEffect(() => {
-  setTimeout(() => {
-    setmodel(true)
+// useEffect(() => setloaded(true), []);
+// useEffect(() => {
+//   setTimeout(() => {
+//     setmodel(true)
     
-  }, 600);
-}, [loaded])
+//   }, 600);
+// }, [loaded])
 
   useGSAP(()=>{
     gsap.from("h1",{
@@ -46,28 +47,28 @@ useEffect(() => {
       delay: 0.5
     })
   })
-  const handleClick  =()=>{
-    gsap.to("h1",{
-      duration: 0.5,
-      y: -200,
-      opacity: 0,
+  // const handleClick  =()=>{
+  //   gsap.to("h1",{
+  //     duration: 0.5,
+  //     y: -200,
+  //     opacity: 0,
       
-    })
-    gsap.to("button",{
-      duration: 0.5,
-      y: -200,
-      opacity: 0,
-      delay: 0.2
-    })
-  }
+  //   })
+  //   gsap.to("button",{
+  //     duration: 0.5,
+  //     y: -200,
+  //     opacity: 0,
+  //     delay: 0.2
+  //   })
+  // }
   return (
     
       <div className={className} style={{ width: "100vw" , display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
         <h1 style={{textAlign: "center", color: "white", zIndex:"1"}}>Hello World</h1>
-        <button style={{backgroundColor:"white", color:"black",borderRadius:"5px", height:"30px", marginBottom: "100px",zIndex:"1"}} onClick={handleClick}>Open</button>
-        <Suspense fallback={<div></div>}>
+        <button style={{backgroundColor:"white", color:"black",borderRadius:"5px", height:"30px", marginBottom: "100px",zIndex:"1"}} onClick={()=>{setmodel(true)}}>Open</button>
+        {/* <Suspense fallback={<div></div>}> */}
         {model && <Spline scene='https://prod.spline.design/6Re8UFR1WXy53RFH/scene.splinecode' style={{width:"100%", height: "100vh", position:"absolute", zIndex:"0"}}/>}
-        </Suspense>
+        {/* </Suspense> */}
     </div>
     
   )
