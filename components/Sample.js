@@ -9,7 +9,7 @@ function Sample({className}) {
   useEffect(() => {
     // callback function to call when event triggers
     const onPageLoad = () => {
-      setloaded(true);
+      setTimeout(()=>{setloaded(true)}, 3000)
       // do something else
     };
 
