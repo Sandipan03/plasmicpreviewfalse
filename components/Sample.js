@@ -7,25 +7,25 @@ function Sample({className}) {
   const [model, setmodel] = useState(false)
   useGSAP(()=>{
     gsap.from("h1",{
-      duration: 1,
+      duration: 0.5,
       y: 200,
       opacity: 0,
-      delay: 1
+      delay: 0.3
     })
     gsap.from("button",{
-      duration: 1,
+      duration: 0.5,
       y: 200,
       opacity: 0,
-      delay: 2
+      delay: 0.7
     })
   })
   return (
     
       <div className={className} style={{ width: "100vw" , display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-        <h1 style={{textAlign: "center"}}>Hello World</h1>
-        <button style={{backgroundColor:"black", color:"white",borderRadius:"5px", height:"30px", marginBottom: "100px"}} onClick={()=>{setmodel(!model)}}>Open</button>
-        <Suspense fallback={<h1>Loading...</h1> }>
-        {model && <Spline scene='https://prod.spline.design/6Re8UFR1WXy53RFH/scene.splinecode' style={{width:"50%", height: "50%"}}/>}
+        <h1 style={{textAlign: "center", color: "white"}}>Hello World</h1>
+        <button style={{backgroundColor:"white", color:"black",borderRadius:"5px", height:"30px", marginBottom: "100px"}} onClick={()=>{setmodel(!model)}}>Open</button>
+        <Suspense fallback={<div></div>}>
+        {model && <Spline scene='https://prod.spline.design/6Re8UFR1WXy53RFH/scene.splinecode' style={{width:"100%", height: "100vh", position:"absolute"}}/>}
         </Suspense>
     </div>
     
