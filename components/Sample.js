@@ -6,24 +6,30 @@ const Spline = React.lazy(() => import("@splinetool/react-spline"));
 function Sample({className}) {
   const [model, setmodel] = useState(false)
   const [loaded, setloaded] = useState(false)
-  useEffect(() => {
-    // callback function to call when event triggers
-    const onPageLoad = () => {
-      setTimeout(()=>{setloaded(true)}, 3000)
-      // do something else
-    };
+//   useEffect(() => {
+//     // callback function to call when event triggers
+//     const onPageLoad = () => {
+//       const tt=setTimeout(() => {
+//         setloaded(true);
+//       }, 8000);
+//     };
 
-    // Check if the page has already loaded
-    if (document.readyState === 'complete') {
-      onPageLoad();
-    } else {
-      window.addEventListener('load', onPageLoad, false);
-      // Remove the event listener when component unmounts
-      return () => window.removeEventListener('load', onPageLoad);
-  }
-},  []);
+//     // Check if the page has already loaded
+//     if (document.readyState === 'complete') {
+      
+//       onPageLoad();
+//     } else {
+//       window.addEventListener('load', onPageLoad, false);
+//       // Remove the event listener when component unmounts
+//       return () => window.removeEventListener('load', onPageLoad);
+//   }
+// },  []);
+useEffect(() => setloaded(true), []);
 useEffect(() => {
-  setmodel(true)
+  setTimeout(() => {
+    setmodel(true)
+    
+  }, 600);
 }, [loaded])
 
   useGSAP(()=>{
@@ -37,7 +43,7 @@ useEffect(() => {
       duration: 0.5,
       y: 200,
       opacity: 0,
-      delay: 0.7
+      delay: 0.5
     })
   })
   const handleClick  =()=>{
